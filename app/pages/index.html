@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/style.css">
 
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,37 +23,44 @@
 <body>
     <ui-view></ui-view>
     
-    <!-- Angular -->
+        <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
-    <!-- UI-Routing extension -->    
+        <!-- UI-Routing extension -->    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
-    <!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBbh7Z8k9UiDJDS5cPoka5FdMFp2TGrOF8",
-    authDomain: "bloc-chat-8900a.firebaseapp.com",
-    databaseURL: "https://bloc-chat-8900a.firebaseio.com",
-    storageBucket: "bloc-chat-8900a.appspot.com",
-    messagingSenderId: "517973289765"
-  };
-  firebase.initializeApp(config);
-</script>
+        <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBbh7Z8k9UiDJDS5cPoka5FdMFp2TGrOF8",
+            authDomain: "bloc-chat-8900a.firebaseapp.com",
+            databaseURL: "https://bloc-chat-8900a.firebaseio.com",
+            storageBucket: "bloc-chat-8900a.appspot.com",
+            messagingSenderId: "517973289765"
+        };
+        firebase.initializeApp(config);
+    </script>
     
-<!-- AngularFire -->
+        <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
     
 
-    <!-- jQuery -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   
+        <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+        <!-- Angualar UI Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.min.js"></script>
     
     <script src="/scripts/app.js"></script>
     <script src="/scripts/controllers/HomeCtrl.js"></script>
+    <script src="/scripts/controllers/ModalInstanceCtrl.js"></script>
     <script src="/scripts/services/Room.js"></script>
+    
     <!-- Latest compiled and minified JavaScript -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   
