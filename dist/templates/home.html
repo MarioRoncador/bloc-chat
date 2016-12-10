@@ -5,9 +5,11 @@
         <h1 id="home-title">{{modal.modalTitle}}</h1>
     </div>
   
+    <button type="button" class="btn btn-secondary btn-lg btn-block"  ng-click="home.open()">New Chat</button>
+    <p></p>
     <div  class="row-marketing" ng-repeat="room in home.rooms">
         <button type="button" class="btn btn-secondary btn-lg btn-block">{{ room.name }}</button>
     </div>
-    <button type="button" class="btn btn-secondary btn-lg btn-block"  ng-click="home.open()">New Chat</button>
+
        
 </section>

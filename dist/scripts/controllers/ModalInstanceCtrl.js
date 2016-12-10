@@ -1,35 +1,34 @@
  (function() {
      function ModalInstanceCtrl($uibModalInstance) {
-         this.ModalTitle = "New Chat Room Name"
+         this.ModalTitle = "New Room"
          //this.rooms = Room.all;
          //Room.addRoom("Chat Room 3");    
-      /*   var $ctrl = this;
-             var modalInstance = $uibModal.open({
-             animation: $ctrl.animationsEnabled,
-             ariaLabelledBy: 'modal-title',
-             ariaDescribedBy: 'modal-body',
-             templateUrl: 'templates/modal.html',
-             size: size,
-             appendTo: parentElem,
-             resolve: {
-                 items: function () {
-                    return $ctrl.;
-                 }   
-             }
-        });
-        
-        
-*/
+    
+//         this.chat = function() {
+//            var _name = 'Brian';
+//            ngModal.chat = {
+//            name: function(newName) {
+//     // Note that newName can be undefined for two reasons:
+//     // 1. Because it is called as a getter and thus called with no arguments
+//     // 2. Because the property should actually be set to undefined. This happens e.g. if the
+//     //    input is invalid
+//            return arguments.length ? (_name = newName) : _name;
+//            }
+//            };
+//        };
          
-           this.ok = function () {
-                $uibModalInstance.close('Ryan');
-           };
+         this.submit = function () {
+                newRoom = 
+                $uibModalInstance.close(newRoom);
+
+            };
 
            this.cancel = function () {
                 $uibModalInstance.dismiss('cancel');
            };
   
             console.log("From IN the ModalInstanceCtrl");
+
      }
  
      angular
