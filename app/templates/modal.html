@@ -9,7 +9,6 @@
         <div>
             <input type="text" name="roomName" ng-model="$ctrl.newRoom.name" required>
         </div>
-        <button type="submit"></button>
         <button ng-click="$ctrl.reset()">Reset</button>
     </form>
     <pre ng-if="$ctrl.debug">{{ $ctrl.newRoom | json }}</pre>
