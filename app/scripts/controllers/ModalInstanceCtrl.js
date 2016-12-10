@@ -1,10 +1,15 @@
 (function() {
     function ModalInstanceCtrl($uibModalInstance) {
+        var CANCEL_TEXT = 'Cancel';
         var DEBUGABLE = false;
         var DEBUG_ENABLED = true;
+        var OK_TEXT = 'Submit';
         var TITLE = 'Create New Room';
         var vm = this;
 
+        vm.CANCEL_TEXT = CANCEL_TEXT;
+        vm.MODAL_TITLE = TITLE;
+        vm.OK_TEXT = OK_TEXT;
         vm.cancel = cancel;
         vm.debug = DEBUGABLE && DEBUG_ENABLED;
         vm.debuggable = DEBUGABLE;
@@ -14,7 +19,6 @@
         vm.reset = resetForm;
         vm.submit = submitForm;
         vm.toggleDebug = toggleDebug;
-        this.ModalTitle = TITLE;
 
         activate();
 
