@@ -1,8 +1,20 @@
 <div class="modal-header">
             <h3 class="modal-title" id="modal-title">{{$ctrl.ModalTitle}}</h3>
+            <button class="btn-link"
+              ng-if="$ctrl.debuggable"
+              ng-click="$ctrl.toggleDebug()">
+              Toggle Debug
+            </button>
         </div>
         <div class="modal-body" id="modal-body">
-                Body
+          <form name="newRoomForm" novalidate>
+            <div>
+              <input type="text" name="roomName" ng-model="$ctrl.newRoom.name" required>
+            </div>
+            <button type="submit"></button>
+            <button ng-click="$ctrl.reset()">Reset</button>
+          </form>
+          <pre ng-if="$ctrl.debug">{{ $ctrl.newRoom | json }}</pre>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
