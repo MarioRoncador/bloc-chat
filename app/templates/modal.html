@@ -6,10 +6,10 @@
 </div>
 <div class="modal-body" id="modal-body">
     <form name="newRoomForm" novalidate>
-        <div>
-            <input type="text" name="roomName" ng-model="$ctrl.newRoom.name" required>
+        <div class="form-group">
+            <input type="text" class="form-control" name="roomName" placeholder="Name" ng-model="$ctrl.newRoom.name" required>
         </div>
-        <button ng-click="$ctrl.reset()">Reset</button>
+        <button class="btn-link" ng-click="$ctrl.reset()">Reset</button>
     </form>
     <pre ng-if="$ctrl.debug">{{ $ctrl.newRoom | json }}</pre>
 </div>
