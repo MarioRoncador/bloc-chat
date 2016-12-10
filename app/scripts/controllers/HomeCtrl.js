@@ -1,31 +1,30 @@
- (function() {
-     function HomeCtrl($uibModal, Room) {
-         this.homeTitle = "Bloc Chat";
-         this.rooms = Room.all;
+(function() {
+    function HomeCtrl($uibModal, Room) {
+        this.homeTitle = "Bloc Chat";
+        this.rooms = Room.all;
 
-         this.open = function (size, parentSelector) {
-             console.log("Attempting to open modal window.");
+        this.open = function(size, parentSelector) {
+            console.log("Attempting to open modal window.");
 
-             var modalInstance = $uibModal.open({
+            var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: '/templates/modal.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$ctrl',
-            resolve: {
-                }
+                resolve: {}
             });
 
-            modalInstance.result.then(function (newRoomInfo) {
+            modalInstance.result.then(function(newRoomInfo) {
                 console.log("The new room name is: " + newRoomInfo.name);
                 // Make the new room in Firebase here, based on NewRoomName from the modal
-            }, function () {
+            }, function() {
                 console.log('modal-component dismissed at: ' + new Date());
             });
-         };
-     };
+        };
+    };
 
-     angular
-         .module('blocChat')
-         .controller('HomeCtrl', ['$uibModal', 'Room', HomeCtrl]);
- })();
+    angular
+        .module('blocChat')
+        .controller('HomeCtrl', ['$uibModal', 'Room', HomeCtrl]);
+})();
