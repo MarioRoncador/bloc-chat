@@ -1,10 +1,17 @@
 <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">{{$ctrl.ModalTitle}}</h3>
+    <h3 class="modal-title" id="modal-title">{{$ctrl.MODAL_TITLE}}</h3>
+    <button class="btn-link" ng-if="$ctrl.debuggable" ng-click="$ctrl.toggleDebug()">Toggle Debug</button>
+</div>
+<form name="newRoomForm" novalidate>
+    <div class="modal-body" id="modal-body">
+        <div class="form-group">
+            <input type="text" class="form-control" name="roomName" placeholder="Name" ng-model="$ctrl.newRoom.name" required>
         </div>
-        <div class="modal-body" id="modal-body">
-                Body
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
-        </div>
+        <button class="btn-link" ng-click="$ctrl.reset()">Reset</button>
+        <pre ng-if="$ctrl.debug">{{ $ctrl.newRoom | json }}</pre>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">{{ $ctrl.OK_TEXT}}</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">{{ $ctrl.CANCEL_TEXT }}</button>
+    </div>
+</form>

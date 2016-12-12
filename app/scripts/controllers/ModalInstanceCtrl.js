@@ -1,38 +1,53 @@
- (function() {
-     function ModalInstanceCtrl($uibModalInstance) {
-         this.ModalTitle = "New Chat Room Name"
-         //this.rooms = Room.all;
-         //Room.addRoom("Chat Room 3");    
-      /*   var $ctrl = this;
-             var modalInstance = $uibModal.open({
-             animation: $ctrl.animationsEnabled,
-             ariaLabelledBy: 'modal-title',
-             ariaDescribedBy: 'modal-body',
-             templateUrl: 'templates/modal.html',
-             size: size,
-             appendTo: parentElem,
-             resolve: {
-                 items: function () {
-                    return $ctrl.;
-                 }   
-             }
-        });
-        
-        
-*/
-         
-           this.ok = function () {
-                $uibModalInstance.close('Ryan');
-           };
+(function() {
+    function ModalInstanceCtrl($uibModalInstance) {
+        var CANCEL_TEXT = 'Cancel';
+        var DEBUGABLE = false;
+        var DEBUG_ENABLED = true;
+        var OK_TEXT = 'Submit';
+        var TITLE = 'Create New Room';
+        var vm = this;
 
-           this.cancel = function () {
-                $uibModalInstance.dismiss('cancel');
-           };
-  
+        vm.CANCEL_TEXT = CANCEL_TEXT;
+        vm.MODAL_TITLE = TITLE;
+        vm.OK_TEXT = OK_TEXT;
+        vm.cancel = cancel;
+        vm.debug = DEBUGABLE && DEBUG_ENABLED;
+        vm.debuggable = DEBUGABLE;
+        vm.newRoom = {};
+        vm.newRoomMaster = {};
+        vm.ok = submitForm;
+        vm.reset = resetForm;
+        vm.submit = submitForm;
+        vm.toggleDebug = toggleDebug;
+
+        activate();
+
+        function activate() {
             console.log("From IN the ModalInstanceCtrl");
-     }
- 
-     angular
-         .module('blocChat')
-         .controller('ModalInstanceCtrl', ['$uibModalInstance', ModalInstanceCtrl]);
- })();
+        }
+
+        function cancel() {
+            vm.reset();
+            $uibModalInstance.dismiss('cancel');
+        }
+
+        function resetForm() {
+            console.log("Resetting form");
+            vm.newRoom = angular.copy(vm.newRoomMaster);
+        }
+
+        function submitForm() {
+            console.log("Submitting form");
+            $uibModalInstance.close(vm.newRoom);
+        }
+
+        function toggleDebug() {
+            console.log("Toggleing debug mode");
+            vm.debug = !vm.debug;
+        }
+    }
+
+    angular
+        .module('blocChat')
+        .controller('ModalInstanceCtrl', ['$uibModalInstance', ModalInstanceCtrl]);
+})();
