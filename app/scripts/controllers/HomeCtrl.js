@@ -1,8 +1,15 @@
 (function() {
-    function HomeCtrl($uibModal, Room) {
+    function HomeCtrl($uibModal, Room, Message) {
+        this.activeRoom = { name: "NotImplemented" };
         this.homeTitle = "Bloc Chat";
+        this.messages = Message.all;
         this.rooms = Room.all;
 
+        
+        this.addMessage = function(content) {
+            Message.addMessage(content);
+        };
+        
         this.open = function(size, parentSelector) {
             console.log("Attempting to open modal window.");
 
@@ -23,9 +30,11 @@
                 console.log('modal-component dismissed at: ' + new Date());
             });
         };
+        
+        
     };
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$uibModal', 'Room', HomeCtrl]);
+        .controller('HomeCtrl', ['$uibModal', 'Room', 'Message', HomeCtrl]);
 })();
