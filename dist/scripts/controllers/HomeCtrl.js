@@ -1,14 +1,25 @@
 (function() {
     function HomeCtrl($uibModal, Room, Message) {
-        this.activeRoom = { name: "NotImplemented" };
+        var vm = this;
+        this.activeRoom = "-KY4gRoWdWnpb7goJZgS";
         this.homeTitle = "Bloc Chat";
         this.messages = Message.all;
         this.rooms = Room.all;
 
         
-        this.addMessage = function(content) {
-            Message.addMessage(content);
+        this.addSender = function(sender, content) {
+            var sender = prompt("Insert Your Name:");
+            var content = prompt("Insert Your Message:");
+//            roomId = roomId || "-KY4gRoWdWnpb7goJZgS";
+            Message.addMessage(sender, content, this.activeRoom);
         };
+        
+        this.selectRoomID = function(roomId){
+            vm.activeRoom = roomId;
+            console.log(vm.activeRoom);
+        };
+        
+        console.log(vm.activeRoom);
         
         this.open = function(size, parentSelector) {
             console.log("Attempting to open modal window.");

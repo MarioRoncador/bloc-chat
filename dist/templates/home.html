@@ -9,23 +9,24 @@
       <div class="row">
     
         <div class="col-md-3 sidebar">
-            <button type="button" class="btn btn-lg btn-primary"  ng-click="home.open()">New Chat</button>
+            <button type="button" class="btn btn-lg btn-primary"  ng-click="home.open()">New Chat Room</button>
             <p></p>          
             <div  class="col-md-9 col-md-offset-3 content" ng-repeat="room in home.rooms">
-                <button type="button" class="btn btn-secondary">{{ room.name }}</button>
+                <button type="button" class="btn btn-secondary" ng-click="home.selectRoomID(room.$id)">{{ room.name }}</button>
                 <p></p>
             </div>
         </div>
        </div>
     </div>
     
+    <button type="button" class="btn btn-danger" ng-click="home.addSender()">New Message</button>  
+    
     <div class="container">
         <h2>{{ home.activeRoom.name }}</h2>
         <ol>
-            <li ng-repeat="message in home.messages"><pre>{{ message }}</pre></li>
+            <li ng-repeat="message in home.messages"><ol>Message: {{ message.content }}</ol><ol>Date: {{ message.createdAt }}</ol><ol>Sender: {{ message.sender }}</ol><ol>Room ID: {{ message.roomId }}</ol></li>
+            
         </ol>
     </div>
     
-    <button ng-click="home.addMessage('From the HTML!')">Make a test message!</button>  
-       
 </section>

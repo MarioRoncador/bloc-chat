@@ -1,19 +1,27 @@
 (function() {
   function Message($firebaseArray) {
-    var ref = firebase.database().ref().child("messages");
+
+    var room = "-KY4gRoWdWnpb7goJZgS";
+      
+    var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room); 
     var messages = $firebaseArray(ref);
     
-         
+    var date = new Date().getTime();
+    d = new Date(date);
+     
+    
     return {
       all: messages,
-      addMessage: function(content) {
+      addMessage: function(sender, content, roomId) {
         messages.$add({
+            createdAt: d.toString(),
+            sender: sender,
             content: content,
-            createdAt: new Date().getTime(),
-            sender: "John",
+            roomId: roomId,
         });
       },
     };
+    
   }
 
   angular
