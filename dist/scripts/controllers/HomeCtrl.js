@@ -6,6 +6,7 @@
         this.messages = Message.all;
         this.rooms = Room.all;
 
+
         
         this.addSender = function(sender, content) {
             var sender = prompt("Insert Your Name:");
@@ -19,7 +20,8 @@
             console.log(vm.activeRoom);
         };
         
-        console.log(vm.activeRoom);
+
+        console.log(vm.activeRoom +": This is form the HomeCtrl");
         
         this.open = function(size, parentSelector) {
             console.log("Attempting to open modal window.");

@@ -1,0 +1,15 @@
+<div ng-controller="BlocChatCookiesCtrl as $bcc" class="modal-demo">
+ <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{$bcc.MODAL_TITLE}}</h3>
+ </div>
+ <form name="newUsername" novalidate>
+     <div class="form-group">
+            <h5>  Insert your username to proceed:</h5>
+            <input type="text" class="form-control" name="userName" placeholder="Name" ng-model="$bcc.newUser" required>
+        </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$bcc.cancel()">{{ $bcc.OK_TEXT}}</button>
+    </div>
+ </form>
+</div>
+Contact GitHub API Training Shop Blog About
