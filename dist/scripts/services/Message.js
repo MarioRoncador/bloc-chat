@@ -1,9 +1,8 @@
 (function() {
   function Message($firebaseArray) {
 
-    var room = "-KY4gRoWdWnpb7goJZgS";
-      
-    var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(room);
+       
+    var ref = firebase.database().ref().child("messages");
     var messages = $firebaseArray(ref);
     
     var date = new Date().getTime();
@@ -11,7 +10,12 @@
      
     
     return {
-      all: messages,
+        all: messages,
+        getMesagesForRoom: function(roomId) {
+                var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(roomId);
+    var messages = $firebaseArray(ref);
+            return messages;
+        },
       addMessage: function(sender, content, roomId) {
          var msg = "Adding message to room " + roomId + " as " + sender + ":\n\t" + content;
           console.info(msg);

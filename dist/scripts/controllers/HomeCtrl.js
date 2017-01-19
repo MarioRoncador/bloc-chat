@@ -1,7 +1,7 @@
 (function() {
     function HomeCtrl($uibModal, Room, Message) {
         var vm = this;
-        this.activeRoom = "-KY4gRoWdWnpb7goJZgS";
+        this.activeRoom = "";
         this.homeTitle = "Bloc Chat";
         this.messages = Message.all;
         this.rooms = Room.all;
@@ -18,6 +18,7 @@
         this.selectRoomID = function(roomId){
             vm.activeRoom = roomId;
             console.log(vm.activeRoom);
+            vm.messages = Message.getMesagesForRoom(vm.activeRoom);
         };
         
 

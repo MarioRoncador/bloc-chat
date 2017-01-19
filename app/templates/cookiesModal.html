@@ -1,4 +1,4 @@
-<div ng-controller="BlocChatCookiesCtrl as $bcc" class="modal-demo">
+<div class="modal-demo">
  <div class="modal-header">
     <h3 class="modal-title" id="modal-title">{{$bcc.MODAL_TITLE}}</h3>
  </div>
@@ -8,7 +8,7 @@
             <input type="text" class="form-control" name="userName" placeholder="Name" ng-model="$bcc.newUser" required>
         </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="$bcc.cancel()">{{ $bcc.OK_TEXT}}</button>
+        <button class="btn btn-primary" type="button" ng-click="$bcc.submit($bcc.newUser)">{{ $bcc.OK_TEXT}}</button>
     </div>
  </form>
 </div>

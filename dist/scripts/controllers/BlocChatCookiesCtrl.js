@@ -1,5 +1,5 @@
 (function() {
-    function BlocChatCookiesCtrl($uibModal) {
+    function BlocChatCookiesCtrl($uibModalInstance) {
         
         var OK_TEXT = 'Submit';
         var TITLE = 'Insert Username';
@@ -7,12 +7,12 @@
 
         vm.MODAL_TITLE = TITLE;
         vm.OK_TEXT = OK_TEXT;
-        vm.cancel = cancel;
-        vm.newUser = '';  // holds the new user
+        vm.submit = submit;
+       // vm.newUser = '';  // holds the new user
         
-        function cancel() {
-            console.log("From the Ctrl");
-            $uibmodal.dismiss('cancel'); // this function doesn't work
+        function submit(user) {
+            console.log(user + " From the Ctrl");
+            $uibModalInstance.close(user); // this function doesn't work
         }
         
         /* set the new user
@@ -24,5 +24,5 @@
     }
     angular
         .module('blocChat')
-        .controller('BlocChatCookiesCtrl', ['$uibModal', BlocChatCookiesCtrl]);
+        .controller('BlocChatCookiesCtrl', ['$uibModalInstance', BlocChatCookiesCtrl]);
 })();

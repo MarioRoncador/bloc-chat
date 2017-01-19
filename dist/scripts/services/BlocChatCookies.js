@@ -5,9 +5,14 @@
     if (!currentUser || currentUser === '') {
      var modalInstance = $uibModal.open({
           templateUrl: '/templates/cookiesModal.html', 
-
+          controller: 'BlocChatCookiesCtrl',
+          controllerAs: '$bcc',
       })
     }
+      modalInstance.result.then(function(result) {
+          //store user into the cookie
+          console.log(result);
+      });
   }
 
   angular
