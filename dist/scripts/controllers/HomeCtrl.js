@@ -11,7 +11,7 @@
 
         
         this.addSender = function(sender, content) {
-            var sender = prompt("Insert Your Name:");
+            var sender = $cookies.get('New');
             var content = prompt("Insert Your Message:");
 //            roomId = roomId || "-KY4gRoWdWnpb7goJZgS";
             Message.addMessage(sender, content, this.activeRoom);

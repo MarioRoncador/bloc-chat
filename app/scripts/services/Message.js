@@ -13,22 +13,25 @@
         all: messages,
         getMesagesForRoom: function(roomId) {
                 var ref = firebase.database().ref().child("messages").orderByChild("roomId").equalTo(roomId);
-    var messages = $firebaseArray(ref);
-            return messages;
+                var messages = $firebaseArray(ref);
+                return messages;
         },
-      addMessage: function(sender, content, roomId) {
-         var msg = "Adding message to room " + roomId + " as " + sender + ":\n\t" + content;
-          console.info(msg);
-          var messageData = {
-            createdAt: d.toString(),
-            sender: sender,
-            content: content,
-            roomId: roomId,
+        addMessage: function(sender, content, roomId) {
+            var msg = "Adding message to room " + roomId + " as " + sender + ":\n\t" + content;
+            console.info(msg);
+            var messageData = {
+                createdAt: d.toString(),
+                sender: sender,
+                content: content,
+                roomId: roomId,
             };
-         console.info("Message data:");
-         console.info(messageData);
-         messages.$add(messageData);
-      },
+            console.info("Message data:");
+            console.info(messageData);
+            messages.$add(messageData);
+      },          
+        send: function(newMessage) {
+        // Send method logic
+      }
     };
     
   }
