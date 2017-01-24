@@ -1,5 +1,5 @@
 (function() {
-    function HomeCtrl($cookies, $uibModal, Room, Message) {
+    function HomeCtrl($rootScope, $cookies, $uibModal, Room, Message) {
         var vm = this;
         this.activeRoom = "";
         this.homeTitle = "Bloc Chat";
@@ -8,6 +8,13 @@
 
           vm.user = $cookies.get('New');
           console.log(vm.user);
+        
+        $rootScope.$on('change-username', function(event, args) {
+            console.log(event, args);
+            console.log("The username is now: " + args.new_username);
+            vm.user = args.new_username;
+            // Update vm.user to be the _new_ username from the event data
+        });
 
         
         this.addSender = function(sender, content) {
@@ -52,5 +59,5 @@
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$cookies','$uibModal', 'Room', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['$rootScope', '$cookies', '$uibModal', 'Room', 'Message', HomeCtrl]);
 })();

@@ -1,5 +1,5 @@
 (function() {
-  function BlocChatCookies($cookies, $uibModal) {
+  function BlocChatCookies($rootScope, $cookies, $uibModal) {
       
          var currentUser;
       //   $cookies.put('New', ''); // Deletes the user everytime the app is restarted
@@ -15,13 +15,21 @@
     }
       modalInstance.result.then(function(result) {
           $cookies.put('New',result); //store user into the cookie
+          
+          // $broadcast an event so that HomeCtrl can update the UI
+          // ...
+          $rootScope.$broadcast('change-username', {new_username: result});
           currentUser = $cookies.get('New');
           console.log(currentUser+": From the cookie");
-          console.log(result+": From the service");
       });
-  }
+      
+  //    debugger;
+//      $rootScope.$emit('change-username', {foo: "bar"});
 
+  }
+    
+   
   angular
     .module('blocChat')
-    .run(['$cookies', '$uibModal', BlocChatCookies]);
+    .run(['$rootScope', '$cookies', '$uibModal', BlocChatCookies]);
 })();
